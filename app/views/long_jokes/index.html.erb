@@ -1,0 +1,29 @@
+<h1>Listing Long Jokes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Contents</th>
+      <th>Author</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @long_jokes.each do |long_joke| %>
+      <tr>
+        <td><div style="width: 700px"><%= truncate(long_joke.contents, length: 300) %> <%= link_to 'View More', long_joke %></div></td>
+        <td><div style="width: 200px"><%= long_joke.user.name %></div></td>
+        <td><div style="width: 100px"><%= link_to 'Show', long_joke %></div></td>
+        <td><div style="width: 100px"><%= link_to 'Edit', edit_long_joke_path(long_joke) %></div></td>
+        <td><%= link_to 'Destroy', long_joke, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Long joke', new_long_joke_path %>

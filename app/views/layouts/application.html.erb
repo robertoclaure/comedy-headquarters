@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ComedyHeadquarters</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <div class="navbar">
+      <a class="navbar-brand" href="/#">Title Page</a>
+      <ul class="nav navbar-nav">
+       <li><a href="<%= short_jokes_url %>">Short Jokes</a></li>
+       <li><a href="<%= long_jokes_url %>">Long Jokes</a></li>
+        <li><a href="<%= pictures_url %>">Pictures</a></li>
+        <li><a href="<%= users_url %>">Users</a></li>
+      </ul>
+      <% u = User.find_by_id(session[:user_id]) %>
+        <% if session[:user_id] %>
+          <ul class="nav navbar-nav pull-right">
+            <li><%= link_to "sign out", sign_out_url, method: 'delete' %></li>
+          </ul>
+          <p class="navbar-text pull-right">Signed in as <a href="/users/<%= session[:user_id] %>" class="navbar-link"><%= u.name %></a></p>
+        <% else %>
+          <ul class="nav navbar-nav pull-right">
+            <li><%= link_to "sign in", sign_in_url  %></li>
+            <li><%= link_to "sign up", new_user_url  %></li>
+          </ul>
+        <% end %>
+    </div>
+ </div>
+
+<%= yield %>
+
+</body>
+</html>

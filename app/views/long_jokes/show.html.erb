@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Joke:</strong>
+  <%= @long_joke.contents %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @long_joke.user.name %>
+</p>
+
+<%= link_to 'Edit', edit_long_joke_path(@long_joke) %> |
+<%= link_to 'Back', long_jokes_path %>

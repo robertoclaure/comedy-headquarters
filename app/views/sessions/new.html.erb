@@ -1,0 +1,26 @@
+<% if notice.try(:downcase).try(:include?, 'invalid')  %>
+  <div class="alert alert-danger"><%= notice %></div>
+<% elsif notice %>
+  <div class="alert alert-success"><%= notice %></div>
+<% end %>
+
+<div class="row">
+  <div class="col-lg-4 col-lg-offset-4">
+    <h1>Sign in</h1>
+  </div>
+</div>
+<%= form_tag('/sessions/create', class: 'form-horizontal') do %>
+  <div class="form-group col-lg-offset-2">
+    <%= label_tag :name, nil, class: 'col-lg-2 control-label' %>
+    <div class="col-lg-4">
+      <%= text_field_tag :name, nil, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-offset-5 col-lg-7">
+      <%= submit_tag 'sign in', class: 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>
+
+</form>

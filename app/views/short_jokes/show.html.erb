@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Joke:</strong>
+  <%= @short_joke.contents %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @short_joke.user.name %>
+</p>
+
+<%= link_to 'Edit', edit_short_joke_path(@short_joke) %> |
+<%= link_to 'Back', short_jokes_path %> |
+<%= link_to 'Destroy', @short_joke, method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -1,0 +1,26 @@
+<h1>Listing Pictures</h1>
+
+<table class="table content-table">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pictures.each do |picture| %>
+      <tr>
+        <td><div style="width: 200px"><%= picture.description %></div></td>
+        <td><img src="<%= picture.pic %>"height="200"></td>
+        <td><%= link_to 'Show', picture %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Picture', new_picture_path %>

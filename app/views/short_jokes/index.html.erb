@@ -1,0 +1,27 @@
+<h1>Listing Short Jokes</h1>
+
+<table class="table content-table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Contents</th>
+      <th>Author</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @short_jokes.each do |short_joke| %>
+      <tr>
+        <td><div style="width: 600px"><%= short_joke.contents %></div></td>
+        <td><%= short_joke.user.name %></td>
+        <td><%= link_to 'Show', short_joke %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Short joke', new_short_joke_path %>

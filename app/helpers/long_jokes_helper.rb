@@ -1,0 +1,2 @@
+module LongJokesHelper
+end
